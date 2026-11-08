@@ -1,0 +1,28 @@
+name: ParcelScan
+options:
+  bundleIdPrefix: com.anandz
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  ParcelScan:
+    type: application
+    platform: iOS
+    sources: [ParcelScan]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.anandz.parcelscan
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: B29NW884V4
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: NO
+    info:
+      path: ParcelScan/Info.plist
+      properties:
+        CFBundleDisplayName: Parcel Scan
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSCameraUsageDescription: Scans parcel barcodes and QR codes.
+        NSAppTransportSecurity:
+          NSExceptionDomains:
+            k8s-quarkusl-parcella-08328c75e9-679347287.eu-west-1.elb.amazonaws.com:
+              NSExceptionAllowsInsecureHTTPLoads: true
